@@ -9,17 +9,23 @@ class Database:
 
     def insert(self,title, author, year, isbn):
         #the NULL parameter is for the auto-incremented id
+        if(len(title)==0 or len(author)==0 or len(year)==0 or len(isbn)==0):
+            return False
+        if(not year.isnumeric()):
+            return False
         self.cur.execute("INSERT INTO book VALUES(NULL,?,?,?,?)", (title,author,year,isbn))
         self.conn.commit()
+        return True
 
 
     def view(self):
         self.cur.execute("SELECT * FROM book")
         rows = self.cur.fetchall()
-
         return rows
 
     def search(self,title="", author="", year="", isbn=""):
+        if(len(title)==0 and len(author)==0 and len(year)==0 and len(isbn)==0):
+            return False
         self.cur.execute("SELECT * FROM book WHERE title = ? OR author = ? OR year = ? "
                     "OR isbn = ?", (title, author, year, isbn))
         rows = self.cur.fetchall()
@@ -29,11 +35,17 @@ class Database:
     def delete(self,id):
         self.cur.execute("DELETE FROM book WHERE id = ?", (id,))
         self.conn.commit()
+        return True
         #conn.close()
 
     def update(self,id, title, author, year, isbn):
+        if(len(title)==0 or len(author)==0 or len(year)==0 or len(isbn)==0):
+            return False
+        if(not year.isDigit()):
+            return False
         self.cur.execute("UPDATE book SET title = ?, author = ?, year = ?, isbn = ? WHERE id = ?", (title, author, year, isbn, id))
         self.conn.commit()
+        return True
 
     #destructor-->now we close the connection to our database here
     def __del__(self):
