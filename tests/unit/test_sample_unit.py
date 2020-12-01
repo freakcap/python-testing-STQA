@@ -4,7 +4,7 @@ sys.path.insert(1, '/home/freakcap/Desktop/STQA/Application')
 from backend import Database
 database = Database("../../books.db")
 
-class TestApp(unittest.TestCase):
+class UnitTestsApp(unittest.TestCase):
 
     def test_nonNumericYear_INSERT(self):
         flag = database.insert("bookt","i am auth","abcd","IBN000df")

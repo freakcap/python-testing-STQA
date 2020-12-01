@@ -11,7 +11,7 @@ class Database:
         #the NULL parameter is for the auto-incremented id
         if(len(title)==0 or len(author)==0 or len(year)==0 or len(isbn)==0):
             return False
-        if(not year.isnumeric()):
+        if(not year.isdigit()):
             return False
         self.cur.execute("INSERT INTO book VALUES(NULL,?,?,?,?)", (title,author,year,isbn))
         self.conn.commit()
@@ -41,7 +41,7 @@ class Database:
     def update(self,id, title, author, year, isbn):
         if(len(title)==0 or len(author)==0 or len(year)==0 or len(isbn)==0):
             return False
-        if(not year.isDigit()):
+        if(not year.isdigit()):
             return False
         self.cur.execute("UPDATE book SET title = ?, author = ?, year = ?, isbn = ? WHERE id = ?", (title, author, year, isbn, id))
         self.conn.commit()
