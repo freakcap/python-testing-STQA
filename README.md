@@ -1,5 +1,12 @@
+# Sample Project for demonstrating the Software testing techniques (unit testing and integration testing)
 
-# Project Overview
+This repository demonstrates the software testing techniques as a part of STQA academic mini project.
+The base project of book store management has been adopted from the original work of :
+
+[@Daniel Huang](https://www.linkedin.com/in/daniel-huang-443546115/)
+
+
+# Base Project Overview
 
 This program contains both front-end and back-end code for a bookstore app with a simple graphical user interface (**GUI**)
 built with [**Tkinter library**](https://docs.python.org/3/library/tk.html). While I personally might not choose Tkinter if I were to build a real-world app with modern UI,
@@ -21,4 +28,5 @@ For the standalone executable, please see the **app folder** and look for file n
 
 # Author 
 
-[@Daniel Huang](https://www.linkedin.com/in/daniel-huang-443546115/)
+[@Pranav Kulkarni](https://www.linkedin.com/in/pjkulkarni)
+[@Maitreya Kakade]()
